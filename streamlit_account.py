@@ -12,7 +12,7 @@ accountDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAze
 
 
 def query_profit():
-    st.write("bb")
+    st.write("aabbcc")
 def query_position():
 
 
