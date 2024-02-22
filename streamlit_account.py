@@ -57,7 +57,7 @@ def query_last_profit():
             "name": "Name",
             "commodity": "Commodity",
             "quantity": "Quantity",
-            "pnl": "PNL",
+            "pnl": "Last PNL",
         },
         hide_index=True,
     )
