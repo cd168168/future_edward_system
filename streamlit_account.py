@@ -11,15 +11,66 @@ accountDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAze
 
 
 
-def query_profit():
-    st.write("aabbcc")
+def query_last_profit():
+    
+    api = sj.Shioaji(simulation=False) #模擬模式
+
+    nameList=[]
+    commodityList=[]
+    quantityList=[]
+    pnlList=[]
+    
+    for key,value in accountDict.items():
+
+        api.login(
+            api_key=value[0], 
+            secret_key=value[1])
+        
+        profitloss = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
+        
+        for data in profitloss:
+            
+            if data.id==0:
+            
+                nameList.append(key)
+                commodityList.append(data.code)
+                quantityList.append(data.quantity)
+                pnlList.append(data.pnl-data.tax-data.fee)
+                break
+            
+            
+        api.logout()
+        
+    df = pd.DataFrame(
+        {
+            "name": nameList,
+            "commodity": commodityList,
+            "quantity": quantityList,
+            "pnl": pnlList,
+            
+        }
+    )
+    
+    st.dataframe(
+        df,
+        column_config={
+            "name": "Name",
+            "commodity": "Commodity",
+            "quantity": "Quantity",
+            "pnl": "PNL",
+        },
+        hide_index=True,
+    )
+    
+    #st.write("aabbcc")
+    
+    
 def query_position():
+
 
 
     api = sj.Shioaji(simulation=False) #模擬模式
 
-    #aa=""
-    
     nameList=[]
     commodityList=[]
     directionList=[]
@@ -80,4 +131,4 @@ def query_position():
 
 st.title('客戶期貨查詢')
 st.button('Query Position', on_click=query_position)
-st.button('Query Profit', on_click=query_profit)
+st.button('Query Last Profit', on_click=query_last_profit)
