@@ -126,7 +126,7 @@ def query_position():
             nameList.append(key)
             #commodityList.append(str(data.code))
             directionList.append(str(data.direction.value))
-            contractList.append(str(data.quantity))
+            #contractList.append(str(data.quantity))
             #priceList.append(data.price)
             #pnlList.append(data.pnl)
             
@@ -137,7 +137,7 @@ def query_position():
             "name": nameList,
             #"commodity": commodityList,
             "direction": directionList,
-            "contract": contractList,
+            #"contract": contractList,
         }
     )
     
@@ -171,7 +171,7 @@ def query_position():
             "name": "Name",
             #"commodity": "Commodity",
             "direction": "Direction",
-            "contract": contractList,
+            #"contract": contractList,
             
         },
         hide_index=True,
