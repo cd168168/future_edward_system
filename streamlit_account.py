@@ -125,8 +125,8 @@ def query_position():
             
             nameList.append(key)
             commodityList.append(data.code)
-            directionList.append(str(data.direction.value))
-            contractList.append(str(data.quantity))
+            directionList.append(data.direction.value)
+            contractList.append(data.quantity)
             priceList.append(data.price)
             pnlList.append(data.pnl)
             
