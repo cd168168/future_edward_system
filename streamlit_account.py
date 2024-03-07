@@ -113,7 +113,7 @@ def query_position():
         
         for data in positions:
             
-            print(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            #print(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
             #aaStr+="{0} {1} {2} {3} {4} {5}\n".format(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
             #st.write(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
             #nameStr+="{0} ".format(key)
@@ -123,7 +123,7 @@ def query_position():
             #priceStr+="{0} ".format(data.price)
             #nameStr+="{0} ".format(data.pnl)
             
-            #nameList.append(key)
+            nameList.append(key)
             #commodityList.append(data.code)
             #directionList.append(data.direction.value)
             #contractList.append(data.quantity)
@@ -131,7 +131,14 @@ def query_position():
             #pnlList.append(data.pnl)
             
         api.logout()
-        
+    
+    df = pd.DataFrame(
+        {
+            "name": nameList,
+            
+        }
+    )
+    
     #df = pd.DataFrame(
     #    {
     #        "name": nameList,
@@ -156,6 +163,13 @@ def query_position():
     #st.write("aabbcc")
     
     
+    st.dataframe(
+        df,
+        column_config={
+            "name": "Name",
+        },
+        hide_index=True,
+    )
     
     #st.dataframe(
     #    df,
