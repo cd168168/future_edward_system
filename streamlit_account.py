@@ -120,7 +120,12 @@ def query_position():
         }
     )
     
-    st.write("aabbcc")
+    #st.write("aabbcc")
+    
+    st.dataframe(
+        df,
+        hide_index=True,
+    )
     
     #st.dataframe(
     #    df,
