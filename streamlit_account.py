@@ -92,7 +92,7 @@ def query_position():
     contractStr=""
     priceStr=""
     pnlStr=""
-    
+    aaStr=""
     st.write("name ","commodity ","direction ","contract ","price ","pnl")
     
     for key,value in accountDict.items():
@@ -112,7 +112,8 @@ def query_position():
         
         for data in positions:
             
-            st.write(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            aaStr+="{0} {1} {2} {3} {4}\n".format(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            #st.write(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
             #nameStr+="{0} ".format(key)
             #commodityStr+="{0} ".format(data.code)
             #directionStr+="{0} ".format(data.direction.value)
@@ -141,15 +142,15 @@ def query_position():
         }
     )
     
+    st.write(aaStr)
+    #st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
     
-    st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
-    
-    st.write(nameStr)
-    st.write(commodityStr)
-    st.write(directionStr)
-    st.write(contractStr)
-    st.write(priceStr)
-    st.write(nameStr)
+    #st.write(nameStr)
+    #st.write(commodityStr)
+    #st.write(directionStr)
+    #st.write(contractStr)
+    #st.write(priceStr)
+    #st.write(nameStr)
     
     #st.write("aabbcc")
     
