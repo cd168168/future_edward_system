@@ -173,6 +173,7 @@ def query_position():
             #"direction": "Direction",
             #"contract": contractList,        
         },
+        
         hide_index=True,
     )
     
