@@ -125,32 +125,32 @@ def query_position():
             
             nameList.append(key)
             commodityList.append(data.code)
-            #directionList.append(str(data.direction.value))
-            #contractList.append(str(data.quantity))
-            #priceList.append(data.price)
-            #pnlList.append(data.pnl)
+            directionList.append(str(data.direction.value))
+            contractList.append(str(data.quantity))
+            priceList.append(data.price)
+            pnlList.append(data.pnl)
             
         api.logout()
-    
-    df = pd.DataFrame(
-        {
-            "name": nameList,
-            "commodity": commodityList,
-            #"direction": directionList,
-            #"contract": contractList,
-        }
-    )
     
     #df = pd.DataFrame(
     #    {
     #        "name": nameList,
     #        "commodity": commodityList,
-    #        "direction": directionList,
-    #        "contract": contractList,
-    #        "price": priceList,
-    #        "pnl": pnlList,        
+    #        #"direction": directionList,
+    #        #"contract": contractList,
     #    }
     #)
+    
+    df = pd.DataFrame(
+        {
+            "name": nameList,
+            "commodity": commodityList,
+            "direction": directionList,
+            "contract": contractList,
+            "price": priceList,
+            "pnl": pnlList,        
+        }
+    )
     
     #st.write(aaStr)
     #st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
@@ -165,30 +165,29 @@ def query_position():
     #st.write("aabbcc")
     
     
-    st.dataframe(
-        df,
-        column_config={
-            "name": "Name",
-            "commodity": "Commodity",
-            #"direction": "Direction",
-            #"contract": contractList,        
-        },
-        
-        hide_index=True,
-    )
-    
     #st.dataframe(
     #    df,
     #    column_config={
     #        "name": "Name",
     #        "commodity": "Commodity",
     #        "direction": "Direction",
-    #        "contract": "Contract",
-    #        "price": "Price",
-    #        "pnl": "PNL",
+    #        "contract": contractList,        
     #    },
     #    hide_index=True,
     #)
+    
+    st.dataframe(
+        df,
+        column_config={
+            "name": "Name",
+            "commodity": "Commodity",
+            "direction": "Direction",
+            "contract": "Contract",
+            "price": "Price",
+            "pnl": "PNL",
+        },
+        hide_index=True,
+    )
 
 
 st.title('客戶期貨查詢')
