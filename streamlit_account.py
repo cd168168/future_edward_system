@@ -130,7 +130,7 @@ def query_position():
             #priceList.append(data.price)
             #pnlList.append(data.pnl)
             
-        #api.logout()
+        api.logout()
     
     df = pd.DataFrame(
         {
@@ -171,8 +171,7 @@ def query_position():
             "name": "Name",
             "commodity": "Commodity",
             #"direction": "Direction",
-            #"contract": contractList,
-            
+            #"contract": contractList,        
         },
         hide_index=True,
     )
