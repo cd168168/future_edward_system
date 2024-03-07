@@ -124,7 +124,7 @@ def query_position():
             #nameStr+="{0} ".format(data.pnl)
             
             nameList.append(key)
-            #commodityList.append(data.code)
+            commodityList.append(str(data.code))
             directionList.append(str(data.direction.value))
             #contractList.append(data.quantity)
             #priceList.append(data.price)
@@ -135,7 +135,7 @@ def query_position():
     df = pd.DataFrame(
         {
             "name": nameList,
-            #"commodity": commodityList,
+            "commodity": commodityList,
             "direction": directionList,
         }
     )
@@ -168,8 +168,9 @@ def query_position():
         df,
         column_config={
             "name": "Name",
+            "commodity": "Commodity",
             "direction": "Direction",
-            #"commodity": "Commodity",
+            
         },
         hide_index=True,
     )
