@@ -120,18 +120,20 @@ def query_position():
         }
     )
     
-    st.dataframe(
-        df,
-        column_config={
-            "name": "Name",
-            "commodity": "Commodity",
-            "direction": "Direction",
-            "contract": "Contract",
-            "price": "Price",
-            "pnl": "PNL",
-        },
-        hide_index=True,
-    )
+    st.write("aabbcc")
+    
+    #st.dataframe(
+    #    df,
+    #    column_config={
+    #        "name": "Name",
+    #        "commodity": "Commodity",
+    #        "direction": "Direction",
+    #        "contract": "Contract",
+    #        "price": "Price",
+    #        "pnl": "PNL",
+    #    },
+    #    hide_index=True,
+    #)
 
 
 st.title('客戶期貨查詢')
