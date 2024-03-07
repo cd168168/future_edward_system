@@ -107,9 +107,9 @@ def query_position():
         #for data in profitloss:
         #    print(data)
         
-        #positions = api.list_positions(api.futopt_account)
+        positions = api.list_positions(api.futopt_account)
         #print(key,len(positions))
-        positions = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
+        #positions = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
         
         for data in positions:
             
