@@ -67,6 +67,7 @@ def query_last_profit():
         hide_index=True,
     )
     
+    
     #st.write("aabbcc")
     
     
@@ -121,23 +122,24 @@ def query_position():
     )
     
     
-    
+    st.write(df["name"])
+    st.write(df["commodity"])
     #st.write("aabbcc")
     
     
     
-    st.dataframe(
-        df,
-        column_config={
-            "name": "Name",
-            "commodity": "Commodity",
-            "direction": "Direction",
-            "contract": "Contract",
-            "price": "Price",
-            "pnl": "PNL",
-        },
-        hide_index=True,
-    )
+    #st.dataframe(
+    #    df,
+    #    column_config={
+    #        "name": "Name",
+    #        "commodity": "Commodity",
+    #        "direction": "Direction",
+    #        "contract": "Contract",
+    #        "price": "Price",
+    #        "pnl": "PNL",
+    #    },
+    #    hide_index=True,
+    #)
 
 
 st.title('客戶期貨查詢')
