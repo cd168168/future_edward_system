@@ -130,7 +130,7 @@ def query_position():
             #priceList.append(data.price)
             #pnlList.append(data.pnl)
             
-        api.logout()
+        #api.logout()
     
     df = pd.DataFrame(
         {
