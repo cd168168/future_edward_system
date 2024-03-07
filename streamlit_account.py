@@ -94,7 +94,7 @@ def query_position():
     priceStr=""
     pnlStr=""
     aaStr=""
-    st.write("name ","commodity ","direction ","contract ","price ","pnl")
+    #st.write("name ","commodity ","direction ","contract ","price ","pnl")
     
     for key,value in accountDict.items():
 
@@ -124,8 +124,8 @@ def query_position():
             #nameStr+="{0} ".format(data.pnl)
             
             nameList.append(key)
-            #commodityList.append(str(data.code))
-            directionList.append(str(data.direction.value))
+            commodityList.append(str(data.code))
+            #directionList.append(str(data.direction.value))
             #contractList.append(str(data.quantity))
             #priceList.append(data.price)
             #pnlList.append(data.pnl)
@@ -135,8 +135,8 @@ def query_position():
     df = pd.DataFrame(
         {
             "name": nameList,
-            #"commodity": commodityList,
-            "direction": directionList,
+            "commodity": commodityList,
+            #"direction": directionList,
             #"contract": contractList,
         }
     )
@@ -169,8 +169,8 @@ def query_position():
         df,
         column_config={
             "name": "Name",
-            #"commodity": "Commodity",
-            "direction": "Direction",
+            "commodity": "Commodity",
+            #"direction": "Direction",
             #"contract": contractList,
             
         },
