@@ -186,6 +186,7 @@ def query_position():
             "price": "Price",
             "pnl": "PNL",
         },
+        
         hide_index=True,
     )
 
