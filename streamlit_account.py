@@ -16,7 +16,8 @@ from datetime import datetime
 #            "big":["3MKdCLdZoEq78zYbbRJziUSrzYdxYYGhqEDwGfbnAF3x","KUqwpdqqydh1BLAp4yo7dJdb9zciZzTRTuRok1KdwXd"]}
 
 accountDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
-            "edward_wife":["Gvd6pFwFncAHWZgg5jVNEFVBawS2EVEQPqrnwJQ7Jpeo","6nnNUWxuL66eCPR17MGxvgPB8djXPYjCsAENR1KgUycr"]}
+            "edward_wife":["Gvd6pFwFncAHWZgg5jVNEFVBawS2EVEQPqrnwJQ7Jpeo","6nnNUWxuL66eCPR17MGxvgPB8djXPYjCsAENR1KgUycr"],
+            "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"]}
 
 def query_last_profit():
     
@@ -142,7 +143,7 @@ def query_position():
     #    }
     #)
     
-    st.write(aaStr)
+    #st.write(aaStr)
     #st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
     
     #st.write(nameStr)
