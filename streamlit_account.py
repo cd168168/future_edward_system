@@ -112,7 +112,8 @@ def query_position():
         
         for data in positions:
             
-            aaStr+="{0} {1} {2} {3} {4}\n".format(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            print(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            #aaStr+="{0} {1} {2} {3} {4} {5}\n".format(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
             #st.write(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
             #nameStr+="{0} ".format(key)
             #commodityStr+="{0} ".format(data.code)
@@ -130,17 +131,16 @@ def query_position():
             
         api.logout()
         
-    df = pd.DataFrame(
-        {
-            "name": nameList,
-            "commodity": commodityList,
-            "direction": directionList,
-            "contract": contractList,
-            "price": priceList,
-            "pnl": pnlList,
-            
-        }
-    )
+    #df = pd.DataFrame(
+    #    {
+    #        "name": nameList,
+    #        "commodity": commodityList,
+    #        "direction": directionList,
+    #        "contract": contractList,
+    #        "price": priceList,
+    #        "pnl": pnlList,        
+    #    }
+    #)
     
     st.write(aaStr)
     #st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
