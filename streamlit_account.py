@@ -135,7 +135,7 @@ def query_position():
     df = pd.DataFrame(
         {
             "name": nameList,
-            
+            "commodity": commodityList,
         }
     )
     
@@ -167,6 +167,7 @@ def query_position():
         df,
         column_config={
             "name": "Name",
+            "commodity": "Commodity",
         },
         hide_index=True,
     )
