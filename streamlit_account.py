@@ -127,12 +127,12 @@ def query_position():
         api.logout()
     
 	
-    st.write(nameStr)
-    st.write(commodityStr)
-    st.write(directionStr)
-    st.write(contractStr)
-    st.write(priceStr)
-    st.write(pnlStr)
+    #st.write(nameStr)
+    #st.write(commodityStr)
+    #st.write(directionStr)
+    #st.write(contractStr)
+    #st.write(priceStr)
+    #st.write(pnlStr)
     
     st.write("aabbcc")
 	
