@@ -128,11 +128,11 @@ def query_position():
     
 	
     st.write(nameStr)
-    #st.write(commodityStr)
-    #st.write(directionStr)
-    #st.write(contractStr)
-    #st.write(priceStr)
-    #st.write(pnlStr)
+    st.write(commodityStr)
+    st.write(directionStr)
+    st.write(contractStr)
+    st.write(priceStr)
+    st.write(pnlStr)
     
     st.write("aabbcc")
 	
