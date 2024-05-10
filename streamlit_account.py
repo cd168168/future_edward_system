@@ -78,8 +78,7 @@ def query_last_profit():
     
     #st.write("aabbcc")
     
-
-
+    
 def query_position():
 
     api = sj.Shioaji(simulation=False) #模擬模式
@@ -108,29 +107,49 @@ def query_position():
             secret_key=value[1])
         
         
-        
         positions = api.list_positions(api.futopt_account)
         
         for data in positions:
             
-            
-            nameStr+="{0} ".format(key)
-            commodityStr+="{0} ".format(data.code)
-            directionStr+="{0} ".format(data.direction.value)
-            contractStr+="{0} ".format(data.quantity)
-            priceStr+="{0} ".format(data.price)
-            nameStr+="{0} ".format(data.pnl)
+			nameList.append(key)
+            commodityList.append(data.code)
+            directionList.append(data.direction.value)
+            contractList.append(data.quantity)
+            priceList.append(data.price)
+            pnlList.append(data.pnl)
+			
+            #nameStr+="{0} ".format(key)
+            #commodityStr+="{0} ".format(data.code)
+            #directionStr+="{0} ".format(data.direction.value)
+            #contractStr+="{0} ".format(data.quantity)
+            #priceStr+="{0} ".format(data.price)
+            #nameStr+="{0} ".format(data.pnl)
             
         api.logout()
-
-    st.write(nameStr)
-    st.write(commodityStr)
-    st.write(directionStr)
-    st.write(contractStr)
-    st.write(priceStr)
-    st.write(nameStr)
-    st.write("aabbcc")
-
+    
+    st.dataframe(
+        df,
+        column_config={
+            "name": "Name",
+            "commodity": "Commodity",
+            "direction": "Direction",
+            "contract": contractList,        
+        },
+        hide_index=True,
+    )
+    
+    st.dataframe(
+        df,
+        column_config={
+            "name": "Name",
+            "commodity": "Commodity",
+            "direction": "Direction",
+            "contract": "Contract",
+            "price": "Price",
+            "pnl": "PNL",
+        },
+        hide_index=True,
+    )
 
 st.title('客戶期貨查詢')
 st.button('Query Position', on_click=query_position)
