@@ -127,12 +127,12 @@ def query_position():
         api.logout()
     
 	
-    #st.write(nameStr)
-    #st.write(commodityStr)
-    #st.write(directionStr)
-    #st.write(contractStr)
-    #st.write(priceStr)
-    #st.write(pnlStr)
+    st.write(nameStr)
+    st.write(commodityStr)
+    st.write(directionStr)
+    st.write(contractStr)
+    st.write(priceStr)
+    st.write(pnlStr)
     
     #st.write("aabbcc")
 	
@@ -147,18 +147,18 @@ def query_position():
     #    hide_index=True,
     #)
     
-    st.dataframe(
-        df,
-        column_config={
-            "name": "Name",
-            "commodity": "Commodity",
-            "direction": "Direction",
-            "contract": "Contract",
-            "price": "Price",
-            "pnl": "PNL",
-        },
-        hide_index=True,
-    )
+    #st.dataframe(
+    #    df,
+    #    column_config={
+    #        "name": "Name",
+    #        "commodity": "Commodity",
+    #        "direction": "Direction",
+    #        "contract": "Contract",
+    #        "price": "Price",
+    #        "pnl": "PNL",
+    #    },
+    #    hide_index=True,
+    #)
 
 st.title('客戶期貨查詢')
 st.button('Query Position', on_click=query_position)
