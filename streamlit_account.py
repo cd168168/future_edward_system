@@ -110,21 +110,14 @@ def query_position():
         positions = api.list_positions(api.futopt_account)
         
         for data in positions:
-            
-	    nameList.append(key)
+		
+            nameList.append(key)
             commodityList.append(data.code)
             directionList.append(data.direction.value)
             contractList.append(data.quantity)
             priceList.append(data.price)
             pnlList.append(data.pnl)
-			
-            #nameStr+="{0} ".format(key)
-            #commodityStr+="{0} ".format(data.code)
-            #directionStr+="{0} ".format(data.direction.value)
-            #contractStr+="{0} ".format(data.quantity)
-            #priceStr+="{0} ".format(data.price)
-            #nameStr+="{0} ".format(data.pnl)
-            
+		            
         api.logout()
     
     st.dataframe(
