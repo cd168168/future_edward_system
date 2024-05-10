@@ -122,7 +122,13 @@ def query_position():
             nameStr+="{0} ".format(data.pnl)
             
         api.logout()
-    
+
+    st.write(nameStr)
+    st.write(commodityStr)
+    st.write(directionStr)
+    st.write(contractStr)
+    st.write(priceStr)
+    st.write(nameStr)
     st.write("aabbcc")
 
 
