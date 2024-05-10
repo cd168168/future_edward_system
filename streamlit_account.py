@@ -136,16 +136,16 @@ def query_position():
     
     #st.write("aabbcc")
 	
-    st.dataframe(
-        df,
-        column_config={
-            "name": "Name",
-            "commodity": "Commodity",
-            "direction": "Direction",
-            "contract": contractList,        
-        },
-        hide_index=True,
-    )
+    #st.dataframe(
+    #    df,
+    #    column_config={
+    #        "name": "Name",
+    #        "commodity": "Commodity",
+    #        "direction": "Direction",
+    #        "contract": contractList,        
+    #    },
+    #    hide_index=True,
+    #)
     
     st.dataframe(
         df,
