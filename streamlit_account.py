@@ -3,8 +3,6 @@ import streamlit as st
 import shioaji as sj
 from datetime import datetime
 
-
-api=None
 #accountDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
 #            "edward_wife":["Gvd6pFwFncAHWZgg5jVNEFVBawS2EVEQPqrnwJQ7Jpeo","6nnNUWxuL66eCPR17MGxvgPB8djXPYjCsAENR1KgUycr"],
 #            "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
@@ -126,12 +124,6 @@ def query_position():
             
         api.logout()
     
-    st.write(nameStr)
-    st.write(commodityStr)
-    st.write(directionStr)
-    st.write(contractStr)
-    st.write(priceStr)
-    st.write(nameStr)
     st.write("aabbcc")
 
 
