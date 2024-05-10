@@ -110,33 +110,19 @@ def query_position():
             api_key=value[0], 
             secret_key=value[1])
         
-        #profitloss = api.list_profit_loss(api.futopt_account,'2023-12-01','2024-02-01')
-        #print(key)
-        #for data in profitloss:
-        #    print(data)
+        
         
         positions = api.list_positions(api.futopt_account)
-        #print(key,len(positions))
-        #positions = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
         
         for data in positions:
             
-            #print(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
-            #aaStr+="{0} {1} {2} {3} {4} {5}\n".format(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
-            #st.write(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            
             nameStr+="{0} ".format(key)
             commodityStr+="{0} ".format(data.code)
             directionStr+="{0} ".format(data.direction.value)
             contractStr+="{0} ".format(data.quantity)
             priceStr+="{0} ".format(data.price)
             nameStr+="{0} ".format(data.pnl)
-            
-            #nameList.append(key)
-            #commodityList.append(data.code)
-            #directionList.append(data.direction.value)
-            #contractList.append(data.quantity)
-            #priceList.append(data.price)
-            #pnlList.append(data.pnl)
             
         api.logout()
     
@@ -146,6 +132,7 @@ def query_position():
     st.write(contractStr)
     st.write(priceStr)
     st.write(nameStr)
+    st.write("aabbcc")
 
 
 st.title('客戶期貨查詢')
