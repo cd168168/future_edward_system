@@ -110,7 +110,6 @@ def query_position():
         positions = api.list_positions(api.futopt_account)
         
         for data in positions:
-		
 	    nameStr+="{0} ".format(key)
             commodityStr+="{0} ".format(data.code)
             directionStr+="{0} ".format(data.direction.value)
