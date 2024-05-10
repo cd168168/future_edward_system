@@ -145,16 +145,16 @@ def query_position():
     #    }
     #)
     
-    df = pd.DataFrame(
-        {
-            "name": nameList,
-            "commodity": commodityList,
-            "direction": directionList,
-            "contract": contractList,
-            "price": priceList,
-            "pnl": pnlList,        
-        }
-    )
+    #df = pd.DataFrame(
+    #    {
+    #        "name": nameList,
+    #        "commodity": commodityList,
+    #        "direction": directionList,
+    #        "contract": contractList,
+    #        "price": priceList,
+    #        "pnl": pnlList,        
+    #    }
+    #)
     
     #st.write(aaStr)
     #st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
