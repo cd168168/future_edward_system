@@ -111,7 +111,7 @@ def query_position():
         
         for data in positions:
             
-			nameList.append(key)
+	    nameList.append(key)
             commodityList.append(data.code)
             directionList.append(data.direction.value)
             contractList.append(data.quantity)
