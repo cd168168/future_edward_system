@@ -110,7 +110,7 @@ def query_position():
         
         for data in positions:
 			
-			nameStr+="{0} ".format(key)
+	    nameStr+="{0} ".format(key)
             commodityStr+="{0} ".format(data.code)
             directionStr+="{0} ".format(data.direction.value)
             contractStr+="{0} ".format(data.quantity)
@@ -127,7 +127,7 @@ def query_position():
         api.logout()
     
 	
-	st.write(nameStr)
+    st.write(nameStr)
     st.write(commodityStr)
     st.write(directionStr)
     st.write(contractStr)
