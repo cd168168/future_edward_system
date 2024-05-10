@@ -101,7 +101,6 @@ def query_position():
     #st.write("name ","commodity ","direction ","contract ","price ","pnl")
     
     for key,value in accountDict.items():
-
 	api = sj.Shioaji(simulation=False) #模擬模式
         api.login(
             api_key=value[0], 
