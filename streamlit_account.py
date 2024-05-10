@@ -99,9 +99,9 @@ def query_position():
     pnlStr=""
     aaStr=""
     #st.write("name ","commodity ","direction ","contract ","price ","pnl")
-    
+    api = sj.Shioaji(simulation=False) #模擬模式
     for key,value in accountDict.items():
-	api = sj.Shioaji(simulation=False) #模擬模式
+	
         api.login(
             api_key=value[0], 
             secret_key=value[1])
