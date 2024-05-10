@@ -115,7 +115,7 @@ def query_position():
             directionStr+="{0} ".format(data.direction.value)
             contractStr+="{0} ".format(data.quantity)
             priceStr+="{0} ".format(data.price)
-            nameStr+="{0} ".format(data.pnl)
+            pnlStr+="{0} ".format(data.pnl)
 			
             #nameList.append(key)
             #commodityList.append(data.code)
@@ -132,7 +132,7 @@ def query_position():
     st.write(directionStr)
     st.write(contractStr)
     st.write(priceStr)
-    st.write(nameStr)
+    st.write(pnlStr)
     
     st.write("aabbcc")
 	
