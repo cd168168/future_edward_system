@@ -159,12 +159,12 @@ def query_position():
     #st.write(aaStr)
     #st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
     
-    #st.write(nameStr)
-    #st.write(commodityStr)
-    #st.write(directionStr)
-    #st.write(contractStr)
-    #st.write(priceStr)
-    #st.write(nameStr)
+    st.write(nameStr)
+    st.write(commodityStr)
+    st.write(directionStr)
+    st.write(contractStr)
+    st.write(priceStr)
+    st.write(nameStr)
     
     #st.write("aabbcc")
     
@@ -180,18 +180,18 @@ def query_position():
     #    hide_index=True,
     #)
     
-    st.dataframe(
-        df,
-        column_config={
-            "name": "Name",
-            "commodity": "Commodity",
-            "direction": "Direction",
-            "contract": "Contract",
-            "price": "Price",
-            "pnl": "PNL",
-        },
-        hide_index=True,
-    )
+    #st.dataframe(
+    #    df,
+    #    column_config={
+    #        "name": "Name",
+    #        "commodity": "Commodity",
+    #        "direction": "Direction",
+    #        "contract": "Contract",
+    #        "price": "Price",
+    #        "pnl": "PNL",
+    #    },
+    #    hide_index=True,
+    #)
 
 
 st.title('客戶期貨查詢')
