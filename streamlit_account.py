@@ -54,25 +54,26 @@ def query_last_profit():
             
         api.logout()
         
-    #df = pd.DataFrame(
-    #    {
-    #        "name": nameList,
-    #        "commodity": commodityList,
-    #        "quantity": quantityList,
-    #        "pnl": pnlList,        
-    #    }
-    #)
+    df = pd.DataFrame(
+        {
+            "name": nameList,
+            "commodity": commodityList,
+            "quantity": quantityList,
+            "pnl": pnlList,
+            
+        }
+    )
     
-    #st.dataframe(
-    #    df,
-    #    column_config={
-    #        "name": "Name",
-    #        "commodity": "Commodity",
-    #        "quantity": "Quantity",
-    #        "pnl": "Last PNL",
-    #    },
-    #    hide_index=True,
-    #)
+    st.dataframe(
+        df,
+        column_config={
+            "name": "Name",
+            "commodity": "Commodity",
+            "quantity": "Quantity",
+            "pnl": "Last PNL",
+        },
+        hide_index=True,
+    )
     
     
     #st.write("aabbcc")
