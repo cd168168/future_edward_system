@@ -20,7 +20,6 @@ from datetime import datetime
 #            "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"]}
 
 accountDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
-            "edward_wife":["Gvd6pFwFncAHWZgg5jVNEFVBawS2EVEQPqrnwJQ7Jpeo","6nnNUWxuL66eCPR17MGxvgPB8djXPYjCsAENR1KgUycr"],
             "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
             "jiner":["9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
             "jkken":["9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"]}
@@ -82,6 +81,35 @@ def query_last_profit():
     
 def query_position():
 
+	for key,value in accountDict.items():
+
+        api.login(
+            api_key=value[0], 
+            secret_key=value[1])
+        
+        positions = api.list_positions(api.futopt_account)
+        
+        for data in positions:
+            
+            #print(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            #aaStr+="{0} {1} {2} {3} {4} {5}\n".format(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            #st.write(key,data.code,data.direction.value,data.quantity,data.price,data.pnl)
+            #nameStr+="{0} ".format(key)
+            #commodityStr+="{0} ".format(data.code)
+            #directionStr+="{0} ".format(data.direction.value)
+            #contractStr+="{0} ".format(data.quantity)
+            #priceStr+="{0} ".format(data.price)
+            #nameStr+="{0} ".format(data.pnl)
+            
+            nameList.append(key)
+            commodityList.append(data.code)
+            directionList.append(data.direction.value)
+            contractList.append(data.quantity)
+            priceList.append(data.price)
+            pnlList.append(data.pnl)
+            
+        api.logout()
+	
 	st.write("aabbcc")
 
 
