@@ -20,6 +20,7 @@ from datetime import datetime
 #            "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"]}
 
 accountDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
+            "edward_wife":["Gvd6pFwFncAHWZgg5jVNEFVBawS2EVEQPqrnwJQ7Jpeo","6nnNUWxuL66eCPR17MGxvgPB8djXPYjCsAENR1KgUycr"],
             "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
             "jiner":["9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
             "jkken":["9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"]}
@@ -80,14 +81,38 @@ def query_last_profit():
     
     
 def query_position():
+	
+    nameList=[]
+    commodityList=[]
+    directionList=[]
+    contractList=[]
+    priceList=[]
+    pnlList=[]
+    
+    nameStr=""
+    commodityStr=""
+    directionStr=""
+    contractStr=""
+    priceStr=""
+    pnlStr=""
+    aaStr=""
+    #st.write("name ","commodity ","direction ","contract ","price ","pnl")
+    
+    for key,value in accountDict.items():
 
-	for key,value in accountDict.items():
-
+	api = sj.Shioaji(simulation=False) #模擬模式
         api.login(
             api_key=value[0], 
             secret_key=value[1])
         
+        #profitloss = api.list_profit_loss(api.futopt_account,'2023-12-01','2024-02-01')
+        #print(key)
+        #for data in profitloss:
+        #    print(data)
+        
         positions = api.list_positions(api.futopt_account)
+        #print(key,len(positions))
+        #positions = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
         
         for data in positions:
             
@@ -109,8 +134,63 @@ def query_position():
             pnlList.append(data.pnl)
             
         api.logout()
-	
-	st.write("aabbcc")
+    
+    #df = pd.DataFrame(
+    #    {
+    #        "name": nameList,
+    #        "commodity": commodityList,
+    #        #"direction": directionList,
+    #        #"contract": contractList,
+    #    }
+    #)
+    
+    #df = pd.DataFrame(
+    #    {
+    #        "name": nameList,
+    #        "commodity": commodityList,
+    #        "direction": directionList,
+    #        "contract": contractList,
+    #        "price": priceList,
+    #        "pnl": pnlList,        
+    #    }
+    #)
+    
+    #st.write(aaStr)
+    #st.write(df["name"],df["commodity"],df["direction"],df["contract"],df["price"],df["pnl"])
+    
+    st.write(nameStr)
+    st.write(commodityStr)
+    st.write(directionStr)
+    st.write(contractStr)
+    st.write(priceStr)
+    st.write(nameStr)
+    
+    #st.write("aabbcc")
+    
+    
+    #st.dataframe(
+    #    df,
+    #    column_config={
+    #        "name": "Name",
+    #        "commodity": "Commodity",
+    #        "direction": "Direction",
+    #        "contract": contractList,        
+    #    },
+    #    hide_index=True,
+    #)
+    
+    #st.dataframe(
+    #    df,
+    #    column_config={
+    #        "name": "Name",
+    #        "commodity": "Commodity",
+    #        "direction": "Direction",
+    #        "contract": "Contract",
+    #        "price": "Price",
+    #        "pnl": "PNL",
+    #    },
+    #    hide_index=True,
+    #)
 
 
 st.title('客戶期貨查詢')
