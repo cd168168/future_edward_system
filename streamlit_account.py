@@ -67,10 +67,11 @@ def query_profit():
             
         api.logout()
 
-    for data in pnlList:
-        st.write(data)
+    # for data in pnlList:
+    #     st.write(data)
 
-    #df = pd.DataFrame([nameList,pnlList],columns=["name","pnl"])
+    df = pd.DataFrame([nameList,pnlList],columns=["name","pnl"])
+    st.table(df)
     #st.dataframe(df,hide_index=True)
     
     # df = pd.DataFrame(
