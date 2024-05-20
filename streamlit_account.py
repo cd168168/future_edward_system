@@ -90,13 +90,13 @@ def query_position():
     priceList=[]
     pnlList=[]
     
-    nameStr=""
-    commodityStr=""
-    directionStr=""
-    contractStr=""
-    priceStr=""
-    pnlStr=""
-    aaStr=""
+    #nameStr=""
+    #commodityStr=""
+    #directionStr=""
+    #contractStr=""
+    #priceStr=""
+    #pnlStr=""
+    #aaStr=""
 	
     #st.write("name ","commodity ","direction ","contract ","price ","pnl")
     
@@ -110,29 +110,31 @@ def query_position():
         positions = api.list_positions(api.futopt_account)
         
         for data in positions:
-            nameStr+="{0} ".format(key)
-            commodityStr+="{0} ".format(data.code)
-            directionStr+="{0} ".format(data.direction.value)
-            contractStr+="{0} ".format(data.quantity)
-            priceStr+="{0} ".format(data.price)
-            pnlStr+="{0} ".format(data.pnl)
+            #nameStr+="{0} ".format(key)
+            #commodityStr+="{0} ".format(data.code)
+            #directionStr+="{0} ".format(data.direction.value)
+            #contractStr+="{0} ".format(data.quantity)
+            #priceStr+="{0} ".format(data.price)
+            #pnlStr+="{0} ".format(data.pnl)
 			
-            #nameList.append(key)
-            #commodityList.append(data.code)
-            #directionList.append(data.direction.value)
-            #contractList.append(data.quantity)
-            #priceList.append(data.price)
-            #pnlList.append(data.pnl)
+            nameList.append(key)
+            commodityList.append(data.code)
+            directionList.append(data.direction.value)
+            contractList.append(data.quantity)
+            priceList.append(data.price)
+            pnlList.append(data.pnl)
 		            
         api.logout()
     
-	
-    st.write(nameStr)
-    st.write(commodityStr)
-    st.write(directionStr)
-    st.write(contractStr)
-    st.write(priceStr)
-    st.write(pnlStr)
+    if not (nameList and commodityList and directionList and contractList and priceList and pnlList):
+        st.write("沒有部位")
+        
+    #st.write(nameStr)
+    #st.write(commodityStr)
+    #st.write(directionStr)
+    #st.write(contractStr)
+    #st.write(priceStr)
+    #st.write(pnlStr)
     
     #st.write("aabbcc")
 	
