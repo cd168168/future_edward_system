@@ -70,9 +70,18 @@ def query_profit():
     #for data in pnlList:
     #    st.write(data)
 
-    df = pd.DataFrame([nameList,pnlList],columns=["name","pnl"])
+    df = pd.DataFrame(
+        [
+            {"command": "st.selectbox", "rating": 4, "is_widget": True},
+            {"command": "st.balloons", "rating": 5, "is_widget": False},
+            {"command": "st.time_input", "rating": 3, "is_widget": True},
+        ]
+    )
+    
+    st.dataframe(df, use_container_width=True)
 
-    st.dataframe(df,hide_index=True)
+    #df = pd.DataFrame([nameList,pnlList],columns=["name","pnl"])
+    #st.dataframe(df,hide_index=True)
     
     # df = pd.DataFrame(
     #     {
