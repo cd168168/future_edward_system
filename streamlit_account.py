@@ -68,7 +68,7 @@ def query_profit():
         api.logout()
 
     for data in pnlList:
-        st.write(data)
+        st.write(str(data))
         
     #df = pd.DataFrame(
     #    {
