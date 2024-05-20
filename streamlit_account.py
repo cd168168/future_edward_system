@@ -50,8 +50,8 @@ def query_profit():
         nameList.append(key)
         pnlList.append(profitloss.equity_amount-value[0])
 
-	for data in pnlList:
-        st.write(data)
+    	for data in pnlList:
+            st.write(data)
         # profitloss = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
         # for data in profitloss:
             
