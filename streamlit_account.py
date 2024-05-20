@@ -23,8 +23,13 @@ accountApiDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJ
             "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
             "jiner":["9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
             "jkken":["9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"]}
-            
-def query_last_profit():
+
+accountApiDict={"edward":[150000,"6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
+            "ellis":[150000,"7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
+            "jiner":[150000,"9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
+            "jkken":[150000,"9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"]}
+
+def query_profit():
     
     api = sj.Shioaji(simulation=False) #模擬模式
 
@@ -36,44 +41,60 @@ def query_last_profit():
     for key,value in accountApiDict.items():
 
         api.login(
-            api_key=value[0], 
-            secret_key=value[1])
+            api_key=value[1], 
+            secret_key=value[2])
+
+    	profitloss = api.margin(api.futopt_account)
+
         
-        profitloss = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
+        nameList.append(key)
+        pnlList.append(profitloss.equity_amount-value[0])
         
-        for data in profitloss:
+        # profitloss = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
+        # for data in profitloss:
             
-            if data.id==0:
+        #     if data.id==0:
             
-                nameList.append(key)
-                commodityList.append(data.code)
-                quantityList.append(data.quantity)
-                pnlList.append(data.pnl-data.tax-data.fee)
-                break
+        #         nameList.append(key)
+        #         commodityList.append(data.code)
+        #         quantityList.append(data.quantity)
+        #         pnlList.append(data.pnl-data.tax-data.fee)
+        #         break
             
+        # for data in profitloss:
+    	   # pnlList.append(data.pnl-data.tax-data.fee)
             
         api.logout()
         
     df = pd.DataFrame(
         {
             "name": nameList,
-            "commodity": commodityList,
-            "quantity": quantityList,
             "pnl": pnlList,
-            
         }
     )
+
+    st.dataframe(df,hide_index=True)
     
-    st.dataframe(
-        df,
-        column_config={
-            "name": "Name",
-            "commodity": "Commodity",
-            "quantity": "Quantity",
-            "pnl": "Last PNL",
-        },
-        hide_index=True,
-    )
+    # df = pd.DataFrame(
+    #     {
+    #         "name": nameList,
+    #         "commodity": commodityList,
+    #         "quantity": quantityList,
+    #         "pnl": pnlList,
+            
+    #     }
+    # )
+    
+    # st.dataframe(
+    #     df,
+    #     column_config={
+    #         "name": "Name",
+    #         "commodity": "Commodity",
+    #         "quantity": "Quantity",
+    #         "pnl": "Last PNL",
+    #     },
+    #     hide_index=True,
+    # )
     
     
     #st.write("aabbcc")
@@ -164,4 +185,4 @@ def query_position():
 
 st.title('客戶期貨查詢')
 st.button('客戶部位', on_click=query_position)
-st.button('客戶獲利', on_click=query_last_profit)
+st.button('客戶獲利', on_click=query_profit)
