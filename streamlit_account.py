@@ -68,8 +68,8 @@ def query_profit():
         
     df = pd.DataFrame(
         {
-            "name": nameList,
-            "pnl": pnlList,
+            "name": ["aa","bb"],
+            "pnl": [112,12],
         }
     )
 
