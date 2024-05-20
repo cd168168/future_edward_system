@@ -44,7 +44,7 @@ def query_profit():
             api_key=value[1], 
             secret_key=value[2])
 
-    	profitloss = api.margin(api.futopt_account)
+        profitloss = api.margin(api.futopt_account)
 
         
         nameList.append(key)
