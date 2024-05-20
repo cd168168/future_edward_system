@@ -78,7 +78,7 @@ def query_profit():
         ]
     )
     
-    st.dataframe(df)
+    st.dataframe(df, use_container_width=True)
 
     #df = pd.DataFrame([nameList,pnlList],columns=["name","pnl"])
     #st.dataframe(df,hide_index=True)
