@@ -66,14 +66,14 @@ def query_profit():
             
         api.logout()
         
-    #df = pd.DataFrame(
-    #    {
-    #        "name": ["aa","bb"],
-    #        "pnl": [112,12],
-    #    }
-    #)
+    df = pd.DataFrame(
+        {
+            "name": ["aa","bb"],
+            "pnl": [112,12],
+        }
+    )
 
-    #st.dataframe(df,hide_index=True)
+    st.dataframe(df,hide_index=True)
     
     # df = pd.DataFrame(
     #     {
