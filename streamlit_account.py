@@ -69,13 +69,8 @@ def query_profit():
 
     #for data in pnlList:
     #    st.write(data)
-        
-    df = pd.DataFrame(
-        {
-            "name": nameList,
-            "pnl": pnlList,
-        }
-    )
+
+    df = pd.DataFrame([nameList,pnlList],columns=["name","pnl"])
 
     st.dataframe(df,hide_index=True)
     
