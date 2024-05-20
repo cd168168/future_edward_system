@@ -161,5 +161,5 @@ def query_position():
     #)
 
 st.title('客戶期貨查詢')
-st.button('Query Position', on_click=query_position)
-st.button('Query Last Profit', on_click=query_last_profit)
+st.button('客戶部位', on_click=query_position)
+st.button('客戶獲利', on_click=query_last_profit)
