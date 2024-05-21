@@ -69,7 +69,7 @@ def query_profit():
         if idx!=0:
             sum+=data
             
-    st.write("總獲利:{0}".format(sum))
+    st.write("總獲利 : {0}".format(sum))
     
     
 def query_position():
