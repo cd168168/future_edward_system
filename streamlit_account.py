@@ -47,16 +47,13 @@ def query_profit():
 
         profitloss = api.margin(api.futopt_account)
 
-
-        profitloss=profitloss.equity_amount-value[1]
-        
         nameList.append(value[0])
-        profitList.append(profitloss)
+        profitList.append(profitloss.equity_amount-value[1])
 
         if key=="edward":
             receiveList.append(0)
         else:
-            receiveList.append(profitloss*0.4)
+            receiveList.append((profitloss.equity_amount-value[1])*0.4)
         # api.logout()
     
     df = pd.DataFrame(
