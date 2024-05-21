@@ -51,26 +51,9 @@ def query_profit():
         
         nameList.append(key)
         pnlList.append(profitloss.equity_amount-value[0])
-
-    	
-        # profitloss = api.list_profit_loss(api.futopt_account,"{0}-01-01".format(datetime.now().year),"{0}-12-31".format(datetime.now().year))
-        # for data in profitloss:
-            
-        #     if data.id==0:
-            
-        #         nameList.append(key)
-        #         commodityList.append(data.code)
-        #         quantityList.append(data.quantity)
-        #         pnlList.append(data.pnl-data.tax-data.fee)
-        #         break
-            
-        # for data in profitloss:
-    	   # pnlList.append(data.pnl-data.tax-data.fee)
-            
+    
         # api.logout()
-
-
-
+    
     df = pd.DataFrame(
         {
             "姓名": nameList,
@@ -94,16 +77,6 @@ def query_position():
     priceList=[]
     pnlList=[]
     
-    #nameStr=""
-    #commodityStr=""
-    #directionStr=""
-    #contractStr=""
-    #priceStr=""
-    #pnlStr=""
-    #aaStr=""
-	
-    #st.write("name ","commodity ","direction ","contract ","price ","pnl")
-    
     for key,value in accountApiDict.items():
 
         api.login(
@@ -114,13 +87,7 @@ def query_position():
         positions = api.list_positions(api.futopt_account)
         
         for data in positions:
-            #nameStr+="{0} ".format(key)
-            #commodityStr+="{0} ".format(data.code)
-            #directionStr+="{0} ".format(data.direction.value)
-            #contractStr+="{0} ".format(data.quantity)
-            #priceStr+="{0} ".format(data.price)
-            #pnlStr+="{0} ".format(data.pnl)
-			
+
             nameList.append(key)
             commodityList.append(data.code)
             directionList.append(data.direction.value)
@@ -145,38 +112,6 @@ def query_position():
         )
     
         st.dataframe(df,hide_index=True)
-    #st.write(nameStr)
-    #st.write(commodityStr)
-    #st.write(directionStr)
-    #st.write(contractStr)
-    #st.write(priceStr)
-    #st.write(pnlStr)
-    
-    #st.write("aabbcc")
-	
-    #st.dataframe(
-    #    df,
-    #    column_config={
-    #        "name": "Name",
-    #        "commodity": "Commodity",
-    #        "direction": "Direction",
-    #        "contract": contractList,        
-    #    },
-    #    hide_index=True,
-    #)
-    
-    #st.dataframe(
-    #    df,
-    #    column_config={
-    #        "name": "Name",
-    #        "commodity": "Commodity",
-    #        "direction": "Direction",
-    #        "contract": "Contract",
-    #        "price": "Price",
-    #        "pnl": "PNL",
-    #    },
-    #    hide_index=True,
-    #)
 
 st.title('客戶期貨查詢')
 st.button('客戶部位', on_click=query_position)
