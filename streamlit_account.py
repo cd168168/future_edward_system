@@ -51,7 +51,7 @@ def query_profit():
         nameList.append(value[0])
         profitList.append(profitloss.equity_amount-value[1])
 
-        if key!="edward":
+        if key=="edward":
             receiveList.append(0)
         else:
             receiveList.append((profitloss.equity_amount-value[1])*0.4)
@@ -64,8 +64,6 @@ def query_profit():
             "預期應收": receiveList,
         }
     )
-    
-    st.dataframe(df,hide_index=True)
 
     profitSum=0
     receiveSum=0
@@ -78,6 +76,7 @@ def query_profit():
         if idx!=0:
             receiveSum+=data
             
+    st.dataframe(df,hide_index=True)
     st.write("總獲利 : {0}".format(profitSum))
     st.write("預期總應收 : {0}".format(receiveSum))
     
