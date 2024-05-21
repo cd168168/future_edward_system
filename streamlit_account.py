@@ -134,17 +134,17 @@ def query_position():
         st.write("沒有部位")
     else:
         df = pd.DataFrame(
-        {
-            "姓名": nameList,
-            "商品": commodityList,
-            "方向": directionList,
-            "口數": contractList,
-            "價格": priceList,
-            "損益": pnlList,
-        }
-    )
+            {
+                "姓名": nameList,
+                "商品": commodityList,
+                "方向": directionList,
+                "口數": contractList,
+                "價格": priceList,
+                "損益": pnlList,
+            }
+        )
     
-    st.dataframe(df,hide_index=True)
+        st.dataframe(df,hide_index=True)
     #st.write(nameStr)
     #st.write(commodityStr)
     #st.write(directionStr)
