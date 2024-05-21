@@ -19,10 +19,10 @@ from datetime import datetime
 #            "edward_wife":["Gvd6pFwFncAHWZgg5jVNEFVBawS2EVEQPqrnwJQ7Jpeo","6nnNUWxuL66eCPR17MGxvgPB8djXPYjCsAENR1KgUycr"],
 #            "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"]}
 
-accountApiDict={"edward":["6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
-            "ellis":["7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
-            "jiner":["9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
-            "jkken":["9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"]}
+accountApiDict={"edward":["王伯涵","6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
+            "ellis":["ellis","7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
+            "jiner":["黃宣璟","9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
+            "jkken":["鄭旭智","9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"]}
 
 accountMarginDict={"edward":["王伯涵",150000,"6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"],
             "ellis":["ellis",150000,"7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
@@ -80,15 +80,15 @@ def query_position():
     for key,value in accountApiDict.items():
 
         api.login(
-            api_key=value[0], 
-            secret_key=value[1])
+            api_key=value[1], 
+            secret_key=value[2])
         
         
         positions = api.list_positions(api.futopt_account)
         
         for data in positions:
 
-            nameList.append(key)
+            nameList.append(value[0])
             commodityList.append(data.code)
             directionList.append(data.direction.value)
             contractList.append(data.quantity)
