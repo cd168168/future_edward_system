@@ -36,9 +36,8 @@ def query_profit():
     api = sj.Shioaji(simulation=False) #模擬模式
 
     nameList=[]
-    commodityList=[]
-    quantityList=[]
-    pnlList=[]
+    profitList=[]
+    receiveList=[]
     
     for key,value in accountMarginDict.items():
 
@@ -51,26 +50,36 @@ def query_profit():
         
         nameList.append(value[0])
         pnlList.append(profitloss.equity_amount-value[1])
-    
+
+        if key!="edward":
+            receiveList.append(0)
+        else:
+            receiveList.append((profitloss.equity_amount-value[1])*0.4)
         # api.logout()
     
     df = pd.DataFrame(
         {
             "姓名": nameList,
-            "損益": pnlList,
+            "損益": profitList,
+            "預期應收": receiveList,
         }
     )
     
     st.dataframe(df,hide_index=True)
 
-    sum=0
-
-    for idx,data in enumerate(pnlList):
-        if idx!=0:
-            sum+=data
-            
-    st.write("總獲利 : {0}".format(sum))
+    profitSum=0
+    receiveSum=0
     
+    for idx,data in enumerate(profitList):
+        if idx!=0:
+            profitSum+=data
+
+    for idx,data in enumerate(receiveList):
+        if idx!=0:
+            receiveSum+=data
+            
+    st.write("總獲利 : {0}".format(profitSum))
+    st.write("預期總應收 : {0}".format(receiveSum))
     
 def query_position():
 
