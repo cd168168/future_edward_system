@@ -67,7 +67,7 @@ def query_profit():
         # for data in profitloss:
     	   # pnlList.append(data.pnl-data.tax-data.fee)
             
-        api.logout()
+        # api.logout()
 
 
 
