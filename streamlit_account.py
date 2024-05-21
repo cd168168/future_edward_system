@@ -29,7 +29,7 @@ accountMarginDict={"edward":[150000,"6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmn
             "jiner":[150000,"9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
             "jkken":[150000,"9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"]}
 
-# accountMarginDict={"edward":[150000,"6F8MBCti6FzZkc86uut5TLfSRAb1UiQjMREER1TKKmnw","8PA2ZJAzew3pFj2zpi3aUHYMvYZwjQEpXrb3a1GysPar"]}
+
 
 def query_profit():
     
@@ -73,58 +73,13 @@ def query_profit():
 
     df = pd.DataFrame(
         {
-            "name": nameList,
-            "pnl": pnlList,
+            "姓名": nameList,
+            "損益": pnlList,
         }
     )
     
-    st.dataframe(
-        df,
-        hide_index=True,
-    )
-    
-    #for data in pnlList:
-    #    st.write(data)
-
-    # df = pd.DataFrame([nameList,pnlList],columns=["name","pnl"])
-    # st.dataframe(df,hide_index=True)
-    
-    # df = pd.DataFrame(
-    #     [
-    #         {"command": "st.selectbox", "rating": 4, "is_widget": True},
-    #         {"command": "st.balloons", "rating": 5, "is_widget": False},
-    #         {"command": "st.time_input", "rating": 3, "is_widget": True},
-    #     ]
-    # )
-        
-    # st.dataframe(
-    #     df,
-    #     hide_index=True,
-    # )
-
-
-    # df = pd.DataFrame(
-    #     {
-    #         "name": nameList,
-    #         "commodity": commodityList,
-    #         "quantity": quantityList,
-    #         "pnl": pnlList,
-            
-    #     }
-    # )
-    
-    # st.dataframe(
-    #     df,
-    #     column_config={
-    #         "name": "Name",
-    #         "commodity": "Commodity",
-    #         "quantity": "Quantity",
-    #         "pnl": "Last PNL",
-    #     },
-    #     hide_index=True,
-    # )
-    
-    
+    st.dataframe(df,hide_index=True)
+     
     #st.write("aabbcc")
     
     
@@ -173,11 +128,23 @@ def query_position():
             priceList.append(data.price)
             pnlList.append(data.pnl)
 		            
-        api.logout()
+        # api.logout()
     
     if not (nameList and commodityList and directionList and contractList and priceList and pnlList):
         st.write("沒有部位")
-        
+    else:
+        df = pd.DataFrame(
+        {
+            "姓名": nameList,
+            "商品": commodityList,
+            "方向": directionList,
+            "口數": contractList,
+            "價格": priceList,
+            "損益": pnlList,
+        }
+    )
+    
+    st.dataframe(df,hide_index=True)
     #st.write(nameStr)
     #st.write(commodityStr)
     #st.write(directionStr)
