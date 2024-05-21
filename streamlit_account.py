@@ -73,17 +73,13 @@ def query_profit():
 
     df = pd.DataFrame(
         {
-            "name": ["Roadmap", "Extras", "Issues"],
-            "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
+            "name": nameList,
+            "pnl": pnlList,
         }
     )
     
     st.dataframe(
         df,
-        column_config={
-            "name": "App name",
-            "url": st.column_config.LinkColumn("App URL"),
-        },
         hide_index=True,
     )
     
