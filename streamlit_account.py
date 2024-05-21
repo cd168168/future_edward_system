@@ -64,10 +64,11 @@ def query_profit():
     st.dataframe(df,hide_index=True)
 
     sum=0
-    
-    for data in pnlList:
-        sum+=data
-        
+
+    for idx,data in enumerate(pnlList):
+        if idx!=0:
+            sum+=data
+            
     st.write("總獲利:{0}".format(sum))
     
     
