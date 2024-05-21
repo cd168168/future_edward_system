@@ -62,8 +62,13 @@ def query_profit():
     )
     
     st.dataframe(df,hide_index=True)
-     
-    #st.write("aabbcc")
+
+    sum=0
+    
+    for data in pnlList:
+        sum+=data
+        
+    st.write("總獲利:{0}".format(sum))
     
     
 def query_position():
