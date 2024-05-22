@@ -121,6 +121,34 @@ def query_position():
     
         st.dataframe(df,hide_index=True)
 
+def customer_equity():
+
+    api=None
+    nameList=[]
+    equityList=[]
+    
+    for key,value in accountApiDict.items():
+
+        api = sj.Shioaji(simulation=False) #模擬模式
+        api.login(
+            api_key=value[1], 
+            secret_key=value[2])
+
+        equityData = api.margin(api.futopt_account)
+
+        nameList.append(value[0])
+        equityList.append(equityData.equity_amount)
+
+        api.logout()
+    
+    df = pd.DataFrame(
+        {
+            "姓名": nameList,
+            "權益總值": equityList,
+        }
+    )
+    
 st.title('客戶期貨查詢')
 st.button('客戶部位', on_click=query_position)
 st.button('客戶獲利', on_click=query_profit)
+st.button('客戶權益總值', on_click=customer_equity)
