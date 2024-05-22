@@ -96,8 +96,15 @@ def query_position():
         
         for data in positions:
 
+            myCommodity=""
             nameList.append(value[0])
-            commodityList.append(data.code)
+            
+            if data.code in "MXF":
+                myCommodity="小台"
+            else:
+                myCommodity="大台"
+                
+            commodityList.append(myCommodity)
             directionList.append(data.direction.value)
             contractList.append(data.quantity)
             priceList.append(data.price)
