@@ -79,6 +79,9 @@ def query_profit():
     st.dataframe(df,hide_index=True)
     st.write("總獲利 : {0}".format(profitSum))
     st.write("預期總應收 : {0}".format(receiveSum))
+    st.write("edward總應收 : {0}".format(receiveSum*0.3))
+    st.write("york總應收 : {0}".format(receiveSum*0.3))
+    st.write("cd總應收 : {0}".format(receiveSum*0.4))
     
 def query_position():
 
