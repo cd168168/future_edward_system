@@ -17,7 +17,6 @@ accountMarginDict={"edward":["王伯涵",150000,"6F8MBCti6FzZkc86uut5TLfSRAb1UiQ
 
 def query_profit():
     
-    # api = sj.Shioaji(simulation=False) #模擬模式
     api=None
     nameList=[]
     profitList=[]
@@ -68,8 +67,7 @@ def query_profit():
     st.write("cd總應收 : {0}".format(receiveSum*0.4))
     
 def query_position():
-
-    # api = sj.Shioaji(simulation=False) #模擬模式
+	
     api=None
     nameList=[]
     commodityList=[]
