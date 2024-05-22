@@ -33,14 +33,15 @@ accountMarginDict={"edward":["王伯涵",150000,"6F8MBCti6FzZkc86uut5TLfSRAb1UiQ
 
 def query_profit():
     
-    api = sj.Shioaji(simulation=False) #模擬模式
-
+    # api = sj.Shioaji(simulation=False) #模擬模式
+    api=None
     nameList=[]
     profitList=[]
     receiveList=[]
     
     for key,value in accountMarginDict.items():
 
+        api = sj.Shioaji(simulation=False) #模擬模式
         api.login(
             api_key=value[2], 
             secret_key=value[3])
@@ -54,7 +55,7 @@ def query_profit():
             receiveList.append(0)
         else:
             receiveList.append((profitloss.equity_amount-value[1])*0.4)
-        # api.logout()
+        api.logout()
     
     df = pd.DataFrame(
         {
@@ -81,8 +82,8 @@ def query_profit():
     
 def query_position():
 
-    api = sj.Shioaji(simulation=False) #模擬模式
-
+    # api = sj.Shioaji(simulation=False) #模擬模式
+    api=None
     nameList=[]
     commodityList=[]
     directionList=[]
@@ -92,6 +93,8 @@ def query_position():
     
     for key,value in accountApiDict.items():
 
+        api = sj.Shioaji(simulation=False) #模擬模式
+        
         api.login(
             api_key=value[1], 
             secret_key=value[2])
@@ -108,7 +111,7 @@ def query_position():
             priceList.append(data.price)
             pnlList.append(data.pnl)
 		            
-        # api.logout()
+        api.logout()
     
     if not (nameList and commodityList and directionList and contractList and priceList and pnlList):
         st.write("沒有部位")
