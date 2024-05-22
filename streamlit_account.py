@@ -147,6 +147,8 @@ def customer_equity():
             "權益總值": equityList,
         }
     )
+
+    st.dataframe(df,hide_index=True)
     
 st.title('客戶期貨查詢')
 st.button('客戶部位', on_click=query_position)
