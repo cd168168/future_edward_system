@@ -88,7 +88,7 @@ def query_position():
         api = sj.Shioaji(simulation=False) #模擬模式
         
         api.login(
-            api_key=value[1], 
+            api_key=value[1],
             secret_key=value[2])
         
         
@@ -99,7 +99,7 @@ def query_position():
             myCommodity=""
             nameList.append(value[0])
             
-            if data.code in "MXF":
+            if "MXF" in data.code:
                 myCommodity="小台"
             else:
                 myCommodity="大台"
