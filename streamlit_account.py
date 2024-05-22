@@ -38,6 +38,7 @@ def query_profit():
             receiveList.append(0)
         else:
             receiveList.append((profitloss.equity_amount-value[1])*0.4)
+		
         api.logout()
     
     df = pd.DataFrame(
