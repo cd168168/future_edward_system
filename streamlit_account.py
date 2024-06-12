@@ -156,8 +156,27 @@ def customer_equity():
     )
 
     st.dataframe(df,hide_index=True)
+
+
+def closeAllPosition():
+    print("aa")
+
+def checkPosition():
+
+    for key,value in accountApiDict.items():
     
-st.title('客戶期貨查詢')
-st.button('客戶部位', on_click=query_position)
-st.button('客戶獲利', on_click=query_profit)
-st.button('客戶權益總值', on_click=customer_equity)
+        api = sj.Shioaji(simulation=False) #模擬模式
+        api.login(
+            api_key=value[1], 
+            secret_key=value[2])
+            
+        if len(api.list_positions(api.futopt_account))>0:
+            st.button('{} 平倉'.format(key), on_click=closeAllPosition)
+        
+        api.logout()
+        
+if __name__ == '__main__':
+    st.title('客戶期貨查詢')
+    st.button('客戶部位', on_click=query_position)
+    st.button('客戶獲利', on_click=query_profit)
+    st.button('客戶權益總值', on_click=customer_equity)
