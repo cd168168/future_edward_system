@@ -177,7 +177,7 @@ def checkPosition():
         
 if __name__ == '__main__':
     
-    checkPosition()
+#     checkPosition()
     
     st.title('客戶期貨查詢')
     st.button('客戶部位', on_click=query_position)
