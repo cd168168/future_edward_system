@@ -179,12 +179,12 @@ def checkPosition():
         
 if __name__ == '__main__':
     
-    checkPosition()
+    # checkPosition()
     
-    st.title('客戶期貨查詢')
+    st.title('客戶期貨查詢',disabled=False)
     st.button('客戶部位', on_click=query_position)
     st.button('客戶獲利', on_click=query_profit)
     st.button('客戶權益總值', on_click=customer_equity)
 
-    if aa==1:
-        st.button('全部平倉', on_click=closeAllPosition)
+    # if aa==1:
+    #     st.button('全部平倉', on_click=closeAllPosition)
