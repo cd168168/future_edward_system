@@ -173,6 +173,7 @@ def checkPosition():
             
         if len(api.list_positions(api.futopt_account))>0:
             aa=1
+            st.button('全部平倉', on_click=closeAllPosition,disabled=False)
             # st.button('{} 平倉'.format(key), on_click=closeAllPosition)
         
         api.logout()
@@ -182,9 +183,11 @@ if __name__ == '__main__':
     # checkPosition()
     
     st.title('客戶期貨查詢')
-    st.button('客戶部位', on_click=query_position,disabled=True)
+    st.button('客戶部位', on_click=query_position)
     st.button('客戶獲利', on_click=query_profit)
     st.button('客戶權益總值', on_click=customer_equity)
-
+    st.button('檢查部位', on_click=checkPosition)
+    st.button('全部平倉', on_click=closeAllPosition,disabled=True)
+    
     # if aa==1:
     #     st.button('全部平倉', on_click=closeAllPosition)
