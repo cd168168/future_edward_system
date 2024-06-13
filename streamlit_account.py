@@ -157,11 +157,12 @@ def customer_equity():
 
     st.dataframe(df,hide_index=True)
 
-
-def closeAllPosition():
-    print("aa")
-
 aa=0
+def closeAllPosition():
+    aa+=1
+    print(aa)
+
+
 def checkPosition():
 
     for key,value in accountApiDict.items():
@@ -186,8 +187,9 @@ if __name__ == '__main__':
     st.button('客戶部位', on_click=query_position)
     st.button('客戶獲利', on_click=query_profit)
     st.button('客戶權益總值', on_click=customer_equity)
-    st.button('檢查部位', on_click=checkPosition)
-    st.button('全部平倉', on_click=closeAllPosition,disabled=True)
+    # st.button('檢查部位', on_click=checkPosition)
+    st.button('全部平倉', on_click=closeAllPosition)
+    # st.button('全部平倉', on_click=closeAllPosition,disabled=True)
     
     # if aa==1:
     #     st.button('全部平倉', on_click=closeAllPosition)
