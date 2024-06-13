@@ -159,7 +159,7 @@ def customer_equity():
 
 
 def closeAllPosition():
-    print("aa")
+    st.write("aa")
 
 
 def checkPosition():
