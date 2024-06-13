@@ -191,8 +191,12 @@ if __name__ == '__main__':
     st.button('客戶獲利', on_click=query_profit)
     st.button('客戶權益總值', on_click=customer_equity)
     # st.button('檢查部位', on_click=checkPosition)
-    st.button('全部平倉',key='btn1',on_click=closeAllPosition)
-    st.session_state.btn1 = True
+    st.button('全部平倉',key='aa',on_click=closeAllPosition)
+    # st.session_state.btn1 = True
+
+    if 'aa' in st.session_state:
+        st.session_state.aa = False
+    
     # st.session_state['key'] = 'value'
     # st.button('My button', key='my_button')
     # st.button('全部平倉', on_click=closeAllPosition,disabled=True)
