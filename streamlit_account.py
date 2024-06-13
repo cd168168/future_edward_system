@@ -157,14 +157,13 @@ def customer_equity():
 
     st.dataframe(df,hide_index=True)
 
-aa=0
+
 def closeAllPosition():
-    aa+=1
-    print(aa)
+    print("aa")
 
 
 def checkPosition():
-
+    aa=0
     for key,value in accountApiDict.items():
     
         api = sj.Shioaji(simulation=False) #模擬模式
@@ -174,10 +173,14 @@ def checkPosition():
             
         if len(api.list_positions(api.futopt_account))>0:
             aa=1
-            st.button('全部平倉', on_click=closeAllPosition,disabled=False)
             # st.button('{} 平倉'.format(key), on_click=closeAllPosition)
         
         api.logout()
+
+    if aa==1:
+        st.button('全部平倉', on_click=closeAllPosition,disabled=False)
+    else:
+        st.button('全部平倉', on_click=closeAllPosition,disabled=True)
         
 if __name__ == '__main__':
     
@@ -187,8 +190,10 @@ if __name__ == '__main__':
     st.button('客戶部位', on_click=query_position)
     st.button('客戶獲利', on_click=query_profit)
     st.button('客戶權益總值', on_click=customer_equity)
-    # st.button('檢查部位', on_click=checkPosition)
-    st.button('全部平倉', on_click=closeAllPosition)
+    st.button('檢查部位', on_click=checkPosition)
+    # st.button('全部平倉',key='close_position',on_click=closeAllPosition)
+    # st.session_state['key'] = 'value'
+    # st.button('My button', key='my_button')
     # st.button('全部平倉', on_click=closeAllPosition,disabled=True)
     
     # if aa==1:
