@@ -181,8 +181,8 @@ if __name__ == '__main__':
     
     # checkPosition()
     
-    st.title('客戶期貨查詢',disabled=False)
-    st.button('客戶部位', on_click=query_position)
+    st.title('客戶期貨查詢')
+    st.button('客戶部位', on_click=query_position,disabled=st.session_state.disabled)
     st.button('客戶獲利', on_click=query_profit)
     st.button('客戶權益總值', on_click=customer_equity)
 
