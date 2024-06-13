@@ -163,6 +163,7 @@ def closeAllPosition():
 
 
 def checkPosition():
+    
     isPosition="no"
     for key,value in accountApiDict.items():
     
@@ -174,37 +175,19 @@ def checkPosition():
         if len(api.list_positions(api.futopt_account))>0:
             isPosition="yes"
             break
-            # st.button('{} 平倉'.format(key), on_click=closeAllPosition)
-        
+           
         api.logout()
 
     return isPosition
-    # if aa==1:
-    #     st.button('全部平倉', on_click=closeAllPosition,disabled=False)
-    # else:
-    #     st.button('全部平倉', on_click=closeAllPosition,disabled=True)
-        
-if __name__ == '__main__':
     
-    # checkPosition()
+if __name__ == '__main__':
     
     st.title('客戶期貨查詢')
     st.button('客戶部位', on_click=query_position)
     st.button('客戶獲利', on_click=query_profit)
     st.button('客戶權益總值', on_click=customer_equity)
-    # st.button('檢查部位', on_click=checkPosition)
-    if checkPosition()=="no":
+    
+    if checkPosition()=="yes":
         st.button('全部平倉',on_click=closeAllPosition,disabled=False)
     else:
         st.button('全部平倉',on_click=closeAllPosition,disabled=True)
-    # st.session_state.btn1 = True
-
-    # if 'aa' in st.session_state:
-    #     st.session_state.aa = False
-    
-    # st.session_state['key'] = 'value'
-    # st.button('My button', key='my_button')
-    # st.button('全部平倉', on_click=closeAllPosition,disabled=True)
-    
-    # if aa==1:
-    #     st.button('全部平倉', on_click=closeAllPosition)
