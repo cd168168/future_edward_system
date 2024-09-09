@@ -20,7 +20,7 @@ accountMarginDict={"edward":["王伯涵",edwardMargin,"6F8MBCti6FzZkc86uut5TLfSR
             "ellis":["張育哲",ellisMargin,"7U541GzLQqFfLrYrWsMczvKptPRLcRhEJHLGdhqXWE7x","4NB7zM7WGhYmbJeaZyaMGCq73LsNULraEz762bMook2B"],
             "jiner":["黃宣璟",jinerMargin,"9hc8z9MSiT1YYaKXwgAMod28f5kA471fPmUuabNVMFbm","ECnwFfA1be6d675dSWCCpE223p2MMeoy4An3x4fTfdwh"],
             "jkken":["鄭旭智",jkkenMargin,"9eHupB3zmvwVcMJtAueVSQ5pbW4qwtgMNEUXK677zk1b","3HDvRocNpgpiKuiVVyFdDEQDdTUK3dFTYmtco6YgNX3n"],
-	    "wen":["柯雋彣","E8ezzVacLsEbUTRddU9XFCGSs8zZH3wWRcW5m96AmAd8","A2zLByuPU62upHw93dwbZnUbScfBbBe4WCkfQyNTZGXW"]}
+	    "wen":["柯雋彣",wenMargin,"E8ezzVacLsEbUTRddU9XFCGSs8zZH3wWRcW5m96AmAd8","A2zLByuPU62upHw93dwbZnUbScfBbBe4WCkfQyNTZGXW"]}
 
 
 
