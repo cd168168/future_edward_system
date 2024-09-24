@@ -62,11 +62,11 @@ def query_profit():
     receiveSum=0
     
     for idx,data in enumerate(profitList):
-        if idx!=0:
+        if idx!=0 and data>0:
             profitSum+=data
 
     for idx,data in enumerate(receiveList):
-        if idx!=0:
+        if idx!=0 and data>0:
             receiveSum+=data
             
     st.dataframe(df,hide_index=True)
