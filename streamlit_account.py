@@ -42,10 +42,10 @@ def query_profit():
 
         nameList.append(value[0])
 	    
-	if profitloss.equity_amount-value[1]>0:
+        if profitloss.equity_amount-value[1]>0:
             profitList.append(profitloss.equity_amount-value[1])
-	else:
-	    profitList.append(0)
+        else:
+            profitList.append(0)
 		
         if key=="edward":
             receiveList.append(0)
