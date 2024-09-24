@@ -41,8 +41,12 @@ def query_profit():
         profitloss = api.margin(api.futopt_account)
 
         nameList.append(value[0])
-        profitList.append(profitloss.equity_amount-value[1])
-
+	    
+	if profitloss.equity_amount-value[1]>0:
+            profitList.append(profitloss.equity_amount-value[1])
+	else:
+	    profitList.append(0)
+		
         if key=="edward":
             receiveList.append(0)
         else:
@@ -62,11 +66,11 @@ def query_profit():
     receiveSum=0
     
     for idx,data in enumerate(profitList):
-        if idx!=0 and data>0:
+        if idx!=0:
             profitSum+=data
 
     for idx,data in enumerate(receiveList):
-        if idx!=0 and data>0:
+        if idx!=0:
             receiveSum+=data
             
     st.dataframe(df,hide_index=True)
